@@ -9,7 +9,7 @@ const testUser = {
 test.describe('Application Tests', () => {
   test.describe('Login Functionality', () => {
     test('Successful login redirects to home page', async ({ page }) => {
-      await page.goto('http://localhost:3000/login');
+      await page.goto('http://localhost:3000/');
       
       await page.locator('#email-input').fill('test@maddox123.ai');
       await page.locator('#password-input').fill('supersecure');
@@ -20,7 +20,7 @@ test.describe('Application Tests', () => {
 
 
     test('Failed login shows error message', async ({ page }) => {
-      await page.goto('http://localhost:3000/login');
+      await page.goto('http://localhost:3000/');
       await page.locator('#email-input').fill('test@maddox.ai');
       await page.locator('#password-input').fill('supersecure');
       
@@ -34,7 +34,7 @@ test.describe('Application Tests', () => {
 
   test.describe('Counter Functionality', () => {
     test.beforeEach(async ({ page }) => {
-      await page.goto('http://localhost:3000/login');
+      await page.goto('http://localhost:3000/');
       await page.locator('#email-input').fill('test@maddox123.ai');
       await page.locator('#password-input').fill('supersecure');
       await page.getByRole('button', { name: 'Login' }).click();
@@ -53,7 +53,7 @@ test.describe('Application Tests', () => {
 
   test.describe('Logout Functionality', () => {
     test('User can logout and is redirected', async ({ page }) => {
-      await page.goto('http://localhost:3000/login');
+      await page.goto('http://localhost:3000/');
       await page.locator('#email-input').fill('test@maddox123.ai');
       await page.locator('#password-input').fill('supersecure');
       await page.waitForTimeout(3000);
